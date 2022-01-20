@@ -29,3 +29,6 @@ public static void main(Sring[] args){
 from funcoes_com_parametro import soma_impares
 import primeiro
 import segundo
+print(primeiro.funcao1())
+print(segundo.funcao2())
+print(soma_impares([2, 3, 4, 5]))

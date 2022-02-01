@@ -67,3 +67,5 @@ print(arquivo.closed)  # Verifica se o arquivo está aberto ou fechado
 # print(arquivo.read())
 # OBS: Se tentarmos manipular o arquivo após o seu fechamento, teremos um ValueError
 '''
+arquivo = open('texto_leitura_de_arquivos.txt')
+print(arquivo.read(50))  # Passando um valor dentro do read, limitamos quantos caracteres queremos que ele leia

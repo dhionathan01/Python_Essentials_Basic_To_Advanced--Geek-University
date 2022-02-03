@@ -1,4 +1,7 @@
-banana 
-maça 
-pera 
-morango 
+FRAMBOESA
+MORANGO
+PERA
+PESSEGO
+JAMBO
+MAMÃO
+

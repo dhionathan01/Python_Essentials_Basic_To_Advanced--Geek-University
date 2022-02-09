@@ -1,10 +1,10 @@
 """
 Sistema de arquivos - Manipulação
-
-
 """
-import os
+
+
 '''
+import os
 # Descobrindo se um arquivo existe
 print(os.path.exists('arquivo.txt'))    # False
 print(os.path.exists('frutas.txt'))    # True

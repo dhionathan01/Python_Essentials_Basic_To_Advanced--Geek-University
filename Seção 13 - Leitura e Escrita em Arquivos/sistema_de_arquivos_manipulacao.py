@@ -80,3 +80,5 @@ os.mkdir('C:/Users/dhion/Documents/Git/Udemy--Curso--Python/Seção 13 - Leitura
 
 # Renomeando arquivo frutas.txt para cesta_frutas.txt
 # os.rename('frutas.txt', 'cesta_frutas.txt')
+
+# Atenção! Tome cuidado com os comandos de deleção. Ao deletarmos um arquivo ou diretório, eles não vo para lixeira

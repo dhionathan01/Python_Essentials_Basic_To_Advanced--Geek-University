@@ -83,4 +83,4 @@ os.mkdir('C:/Users/dhion/Documents/Git/Udemy--Curso--Python/Seção 13 - Leitura
 
 # Atenção! Tome cuidado com os comandos de deleção. Ao deletarmos um arquivo ou diretório, eles não vo para lixeira
 
-# Disaster Recovery
+

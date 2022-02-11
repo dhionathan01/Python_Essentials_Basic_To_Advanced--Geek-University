@@ -70,7 +70,7 @@ os.mkdir('C:/Users/dhion/Documents/Git/Udemy--Curso--Python/Seção 13 - Leitura
 
 # os.rename('templates2', 'Renomeando_Templates2')
 
-# OBS: Se o diretório não exisitir teremos um FileNotFoundError
+# OBS: Se o diretório não existir teremos um FileNotFoundError
 # OBS: Se o diretório que queremos renomear não estiver vazio, teremos um OSError
 
 # Renomeando arquivos:
@@ -83,4 +83,58 @@ os.mkdir('C:/Users/dhion/Documents/Git/Udemy--Curso--Python/Seção 13 - Leitura
 
 # Atenção! Tome cuidado com os comandos de deleção. Ao deletarmos um arquivo ou diretório, eles não vo para lixeira
 
+# Deletando arquivos
+
+# os.remove('arquivo_test.txt')
+
+# OBS: Se você estier no Windows eo arquivo que você for deletar estiver em uso, você tera um erro.
+# OBS: Se o arquivo não existir teremos um FileNotFoundError
+# OBS: Caso informar um diretório ao invés de um arquivo, teremos um IsADirectoryError
+
+# Removendo diretórios vazios
+
+# os.rmdir('templates')
+
+# OBS: Se o diretórui tiver qualquer conteúdo teremos OSError
+# OBS: Se o diretório não existir teremos um FileNotFoundError
+
+# Criando 1000 arquivos text para testar o comando removendo uma árvore de diretórios:
+'''
+for i in range(1000):
+    open(f'testando/arquivo_test{i+1}.txt', 'w', encoding='utf-8').close()
+'''
+'''
+# Removendo uma árvore de diretórios
+for arquivo in os.scandir('testando'):
+    if arquivo.is_file():
+        os.remove(arquivo.path)
+    if not arquivo.is_file():
+        os.rmdir(arquivo.path)
+'''
+
+# Removendo um árvore de diretórios vazios:
+
+# Fazendo os diretórios para teste:
+# os.makedirs('Renomeando_Templates2/novo2/outro2')
+
+# Removendo os diretórios:
+# os.removedirs('Renomeando_Templates2/novo2/outro2')  # Remove todos os diretórios informados
+# Se algum dos diretórios contiver arquivos ou outros diretórios o proesso para.
+# ATENÇÃO: Ao remover os arquivos e diretórios com python eles não vão para lixeira. Eles são excluídos permanentemente
+
+# Para mandar os arquivos para lixeira, precisamos de uma biblioteca de terceiros, então precisamos baixa:
+# Comando: pip install send2trash
+# Em caso de erro instale o lsb-core comando: pip install lsb-core
+
+# Importando send2trash para uso:
+from send2trash import send2trash
+
+# Criando arquivos para teste
+'''
+open('cesta1.txt', 'w', encoding='utf-8').close()
+open('cesta2.txt', 'w', encoding='utf-8').close()
+'''
+
+os.remove('cesta1.txt')  # Exclusão permamente Não vai para lixeira / Não é possível recuperar
+send2trash('cesta2.txt')  # Vai para lixeira pode ser restaurado
 

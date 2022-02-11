@@ -2,7 +2,8 @@
 Sistema de arquivos - Manipulação
 """
 
-import os
+import os, tempfile
+
 '''
 
 # Descobrindo se um arquivo existe
@@ -19,7 +20,6 @@ print(os.path.exists('outro'))    # false
 print(os.path.exists('C:/Users/dhion/OneDrive/Documentos/Bloco de anotações de Dhionathan.url'))  # True
 print(os.path.exists('C:/Users/dhion/OneDrive/Documentos/img'))  # False
 '''
-
 
 # Criando arquivos - Formas possíveis
 # Forma1
@@ -126,15 +126,56 @@ for arquivo in os.scandir('testando'):
 # Comando: pip install send2trash
 # Em caso de erro instale o lsb-core comando: pip install lsb-core
 
+
+'''
 # Importando send2trash para uso:
 from send2trash import send2trash
 
 # Criando arquivos para teste
-'''
 open('cesta1.txt', 'w', encoding='utf-8').close()
 open('cesta2.txt', 'w', encoding='utf-8').close()
 '''
 
+'''
 os.remove('cesta1.txt')  # Exclusão permamente Não vai para lixeira / Não é possível recuperar
 send2trash('cesta2.txt')  # Vai para lixeira pode ser restaurado
+'''
+
+# Trabalhando com arquivos e diretórios temporarios
+# importe a seguinte biblioteca no topo do código : tempfile
+
+# Criando um diretório temporário:
+'''
+with tempfile.TemporaryDirectory() as tmp:
+    print(f'Criei o diretório temporário em {tmp}')
+    with open(os.path.join(tmp, 'arquvo_temporario_txt'), 'w', encoding='utf-8') as arquivo:
+        arquivo.write('Dhionathan Jobim \n')
+    input()
+'''
+"""
+Acima estamos criando um diretórios temporário, abrindo o mesmo e dentro dele criando
+um arquivo para escrevermos um texto. No final. usamos um input só para mantermos os arquivos temporários 'vivos'
+dentro dos blocos with.
+"""
+
+# Criando um arquivo temporário
+'''
+with tempfile.TemporaryFile() as tmp:
+    # Utilizamos o format b, pq precisamos converter essa string em binário.
+    tmp.write(b'Geek University \n')
+    tmp.seek(0)
+    print(tmp.read())
+    input()  # Stop para checar se o arquivo foi criado
+'''
+# OBS: Em arquivos temporários só conseguimos escrever bits. Por isso, utilziamos b
+
+# Outro exempli:
+
+arquivo = tempfile.NamedTemporaryFile()
+arquivo.write(b'Dhioanthan Jobim\n')
+print(arquivo.name)
+print(arquivo.read())
+input()  # Pausa para checar se o arquivo foi criado
+arquivo.close()
+# https://docs.python.org/pt-br/3/library/os.html#module-os
 

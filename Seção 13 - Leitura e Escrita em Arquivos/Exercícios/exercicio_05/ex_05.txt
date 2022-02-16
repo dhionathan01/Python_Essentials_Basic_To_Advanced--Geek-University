@@ -1,0 +1,4 @@
+txt de verificação
+validação
+simulação
+teste

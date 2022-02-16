@@ -3,6 +3,7 @@ Faça um programa que recaba do usuário um arquivo texto e mostre na tela:
 * Número de vogais
 * Número de consoantes
 """
+import sys
 
 
 def abrindo_arquivo(nome):
@@ -13,10 +14,13 @@ def abrindo_arquivo(nome):
 
     except FileExistsError:
         print('\n Arquivo não existe')
+        sys.exit()
     except FileNotFoundError:
         print('\n Arquivo não foi encontrado')
+        sys.exit()
     except OSError:
         print(' \nNomes de arquivos não podem conter caracteres especiais')
+        sys.exit()
 
 
 def contar_vogais(arquivo_recebido):
@@ -29,6 +33,7 @@ def contar_vogais(arquivo_recebido):
         return contador_de_vogais
     except AttributeError:
         print('Não foi possivel efetuar a contagem')
+        sys.exit()
 
 
 def contar_consoantes(arquivo_recebido):
@@ -44,6 +49,7 @@ def contar_consoantes(arquivo_recebido):
         return contador_de_consoantes
     except AttributeError:
         print('Não foi possivel efetuar a contagem')
+        sys.exit()
 
 
 if __name__ == '__main__':
@@ -57,4 +63,3 @@ if __name__ == '__main__':
     print(f'O arquivo:{nome_arquivo} contém:\n'
           f'Vogais:{vogais_contadas}\n'
           f'Consoantes: {consoantes_contadas}\n')
-

@@ -1,0 +1,3 @@
+Este é um texto de teste
+do exercício 08
+de python Essentials
